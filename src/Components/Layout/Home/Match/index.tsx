@@ -1,9 +1,9 @@
-import NextMatch from "./NextMatch";
+import HomeMatch from "./HomeMatch";
 
 const MatchLayout = () => {
   return (
     <div className="bg-primary w-full flex">
-      <NextMatch 
+      <HomeMatch 
         date= "Last result - 19:00, Jum 5 Apr"
         club= "/logoBali.png"
         homeClub="BALI UNITED"
@@ -15,7 +15,7 @@ const MatchLayout = () => {
         icon="bx bx-football"
         linkText="Statistik"
       />
-      <NextMatch
+      <HomeMatch
         date= "Next match - 15:00, Sab 12 Apr"
         club= "/logoPersija.png"
         status="Home"
@@ -28,7 +28,7 @@ const MatchLayout = () => {
         <h1 className="text-lg font-semibold">
           Stadion Maguwoharjo
         </h1>
-      </NextMatch>
+      </HomeMatch>
       {/* <Table/> */}
     </div>
   );

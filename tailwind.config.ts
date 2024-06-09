@@ -9,9 +9,15 @@ const config: Config = {
   theme: {
     colors:{
       "primary": "#004225",
+      "secondary-green":"#1A4D2E",
       "secondary": "#00D084",
       "white": "#FFFFFF",
-      "red": "#E72929"
+      "white-secondary":"#aaa",
+      "white-three": "#F5F5F5",
+      "grey": "#E8E2E2",
+      "blue": "#23bebe",
+      "red": "#E72929",
+      "black": "#212121"
     },
     container: {
       padding: '2%',

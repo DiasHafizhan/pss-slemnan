@@ -1,12 +1,12 @@
 import BeritaLayout from "./Berita";
 import ChannelYt from "./ChannelYt";
-import Carousel from "./Slider/Carousel";
 import MatchLayout from "@/Components/Layout/Home/Match";
 import Store from "./Store";
+import SliderComponent from "./Slider";
 const HomeLayout = () => {
   return (
     <>
-      <Carousel />
+      <SliderComponent />
       <div className="container mt-4">
         <MatchLayout />
         <BeritaLayout />

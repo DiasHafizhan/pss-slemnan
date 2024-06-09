@@ -8,9 +8,9 @@ const Store = () => {
         Official Club Store
       </h1>
       <div className="flex justify-between">
-        <CartShop image="/jerseyH.png" title="23/24 HOME KIT" />
-        <CartShop image="/jerseyA.png" title="23/24 AWAY KIT" />
-        <CartShop image="/jerseyT.png" title="23/24 THIRD KIT" />
+        <CartShop image="/shirtH.png" title="23/24 HOME KIT" />
+        <CartShop image="/shirtA.png" title="23/24 AWAY KIT" />
+        <CartShop image="/shirtT.png" title="23/24 THIRD KIT" />
       </div>
       <div className="flex justify-center mt-14">
         <Button classname="border border-primary hover:bg-primary hover:text-white transition-all duration-300">

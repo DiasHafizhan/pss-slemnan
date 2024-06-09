@@ -1,0 +1,119 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Klasemen{
+  id Int @id @default(autoincrement())
+  idTim Int @unique
+  totalGame Int
+  menang Int
+  seri Int
+  kalah Int
+  goalAgain Int
+  poin Int
+
+  tim Tim @relation(references: [id], fields: [idTim], onDelete: Cascade)
+}
+
+model Tim{
+  id Int @id @default(autoincrement())
+  name String
+  image String
+
+  klasemen Klasemen?
+}
+
+model Product{
+  id Int @id @default(autoincrement())
+  title String 
+  price Int
+  desc String
+  kategory String?
+  type ProductType @default(AUTHENTIC)
+
+  stock Stock[] 
+  keranjangItem KeranjangItem[]
+  productImg ProductImg[]
+}
+
+enum ProductType {
+  AUTHENTIC
+  REPLICA
+}
+model ProductImg{
+  id Int @id @default(autoincrement())
+  url String
+  productId Int
+
+  product Product @relation(references: [id], fields: [productId], onDelete: Cascade)
+}
+
+model Stock{
+  id Int @id @default(autoincrement())
+  stock Int
+  size String
+  productId Int
+
+  product Product @relation(references: [id], fields: [productId], onDelete: Cascade)
+}
+
+model KeranjangItem{
+  id Int @id @default(autoincrement())
+  productId Int
+  userId Int
+  total Int
+
+  product Product @relation(references: [id], fields: [productId], onDelete: Cascade)
+  user User @relation(references: [id], fields: [userId], onDelete: Cascade)
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  email String
+  password String
+  profilImg String?
+  firstName String?
+  lastName String?
+  address String?
+  noPhone String?
+
+  keranjangItem KeranjangItem[]
+}
+
+model Pemain{
+  id Int @id @default(autoincrement())
+  imagePemain String
+  flag String
+  name String
+  numberPemain Int
+  type String
+  tanggalLahir String
+  tempatLahir String
+
+  statistik Statistik?
+}
+
+model Statistik{
+  id Int @id @default(autoincrement())
+  pemainId Int @unique
+  totalAppearances Int
+  totalStart Int
+  totalMinsplayed Int
+  totalCleansheets Int?
+  totalGoalsconceded Int?
+  totalGoal Int?
+  totalAssist Int?
+
+  pemain Pemain @relation(references: [id], fields: [pemainId], onDelete: Cascade)
+}

@@ -5,3 +5,14 @@
 /* body{
   height: 9999px;
 } */
+
+.bio{
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+}
+
+.wrapper{
+  width: 50%;
+  display: flex;
+  margin: auto;
+  align-items: center;
+}
